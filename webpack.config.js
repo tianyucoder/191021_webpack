@@ -31,17 +31,30 @@ module.exports = {
         exclude: /node_modules/,//排除node_modules文件
         loader: 'eslint-loader',
 			},
-			//使用babel-loader，进行语法转换
+			//使用babel-loader配合core-js和polyfill，进行语法转换及兼容性处理
 			{
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env'] //开启babel解析环境
-          }
+						presets: [
+							[
+								'@babel/preset-env',
+								{
+									useBuiltIns: 'usage',  // 按需引入(需要使用polyfill)
+									corejs: { version: 3 }, // 解决warning警告
+									targets: { // 指定兼容性处理哪些浏览器
+										"chrome": "58",
+										"ie": "9",
+									}
+								}
+							]
+						],
+						cacheDirectory: true, // 开启babel缓存
+					}
         }
-      }
+			}
 		]
 	}
 };

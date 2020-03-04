@@ -6,6 +6,7 @@
 */
 
 //引入模块
+import '@babel/polyfill';
 import {sum} from './module1'
 import {sub} from './module2'
 import m3 from './module3'
@@ -19,3 +20,13 @@ console.log(m3.div(6,3));
 setTimeout(()=>{
 	console.log('定时器的回调执行了');
 })
+
+let p = new Promise((resolve)=>{
+	setTimeout(()=>{
+		resolve('atguigu')
+	},1000)
+})
+p.then(
+	value => {console.log('成功',value);},
+	reason => {console.log('失败',reason);}
+)
