@@ -11,8 +11,9 @@ import {sum} from './module1'
 import {sub} from './module2'
 import m3 from './module3'
 import '../css/index.less'//新的写法：在入口js中引入less文件
+import '../css/iconfont.less'
 
-console.log(sum(1,2));
+console.log(sum(9,2));
 console.log(sub(3,2));
 console.log(m3.mul(3,3));
 console.log(m3.div(6,3));
