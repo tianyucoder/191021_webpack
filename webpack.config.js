@@ -1,3 +1,5 @@
+//引入html-webpack-plugin插件，用于生成html，且自动引入资源
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 //引入path模块，专门用于解决路径相关的问题
 const {resolve} = require('path');
 /* 
@@ -71,5 +73,12 @@ module.exports = {
         ]
       }
 		]
-	}
+	},
+	//plugins里配置所有需要的插件，插件使用之前要new
+	plugins: [
+		//new一个HtmlWebpackPlugin实例
+		new HtmlWebpackPlugin({
+      template: './src/index.html', // 以当前文件为模板创建新的HtML(1. 结构和原来一样 2. 会自动引入打包的资源)
+    }),
+	]
 };
