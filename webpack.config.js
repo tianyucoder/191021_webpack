@@ -57,7 +57,7 @@ module.exports = {
 					}
         }
 			},
-			//使用file-loader处理less文件中的图片
+			//使用url-loader处理less文件中的图片
 			{
         test: /\.(png|jpg|gif|jpeg|bmp)$/,
         use: [
@@ -67,11 +67,17 @@ module.exports = {
 							outputPath:'/imgs',//输出路径
 							name:'[hash:5].[ext]',//文件命名格式
 							publicPath:'../dist/imgs',//加载图片时候的路径
-							limit: 8192 //图片小于8KB，就做base64转换
+							limit: 8192, //图片小于8KB，就做base64转换
+							esModule:false//避免img标签中src属性变为[object Module]
 						}
           }
         ]
-      }
+			},
+			//使用html-loader，处理html文件中img标签
+			{
+				test: /\.(html)$/,
+				loader: 'html-loader'
+			}
 		]
 	},
 	//plugins里配置所有需要的插件，插件使用之前要new
@@ -79,6 +85,7 @@ module.exports = {
 		//new一个HtmlWebpackPlugin实例
 		new HtmlWebpackPlugin({
       template: './src/index.html', // 以当前文件为模板创建新的HtML(1. 结构和原来一样 2. 会自动引入打包的资源)
-    }),
+		}),
+		
 	]
 };
