@@ -9,13 +9,11 @@
 import {sum} from './module1'
 import {sub} from './module2'
 import m3 from './module3'
-import data from './data.json'
 
 console.log(sum(1,2));
 console.log(sub(3,2));
 console.log(m3.mul(3,3));
 console.log(m3.div(6,3));
-console.log(data);
 
 setTimeout(()=>{
 	console.log('定时器的回调执行了');
