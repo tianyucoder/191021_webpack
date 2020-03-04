@@ -8,8 +8,8 @@ const {resolve} = require('path');
 module.exports = {
   entry: './src/js/app.js', //配置入口
   output: { //配置输出位置
-    filename: 'app.js', //输出文件的名字
-    path: resolve(__dirname, 'dist/js') //输出文件的路径
+    filename: 'js/app.js', //输出文件的名字
+    path: resolve(__dirname, 'dist') //输出文件的路径
 	},
 	mode:'development', //工作模式
 	//module是一个配置对象，对象里有一个rules属性
@@ -54,7 +54,21 @@ module.exports = {
 						cacheDirectory: true, // 开启babel缓存
 					}
         }
-			}
+			},
+			//使用file-loader处理less文件中的图片
+			{
+        test: /\.(png|jpg|gif|jpeg|bmp)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+							outputPath:'/imgs',//输出路径
+							name:'[hash:5].[ext]',//文件命名格式
+							publicPath:'../dist/imgs'//加载图片时候的路径
+						}
+          }
+        ]
+      }
 		]
 	}
 };
