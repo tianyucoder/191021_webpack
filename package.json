@@ -1,30 +1,54 @@
 {
-  "name": "191021_webpack",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+ "name": "191021_webpack",
+ "version": "1.0.0",
+ "description": "",
+ "main": "index.js",
+ "scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1"
+ },
+ "repository": {
+  "type": "git",
+  "url": "git+https://github.com/tianyucoder/191021_webpack.git"
+ },
+ "keywords": [],
+ "author": "",
+ "license": "ISC",
+ "bugs": {
+  "url": "https://github.com/tianyucoder/191021_webpack/issues"
+ },
+ "homepage": "https://github.com/tianyucoder/191021_webpack#readme",
+ "dependencies": {
+  "css-loader": "^3.4.2",
+  "style-loader": "^1.1.3",
+  "webpack": "^4.42.0",
+  "webpack-cli": "^3.3.11"
+ },
+ "devDependencies": {
+  "@babel/core": "^7.8.6",
+  "@babel/preset-env": "^7.8.6",
+  "babel-loader": "^8.0.6",
+  "eslint": "^6.8.0",
+  "eslint-loader": "^3.0.3",
+  "less": "^3.11.1",
+  "less-loader": "^5.0.0"
+ },
+ "eslintConfig": {
+  "parserOptions": {
+   "ecmaVersion": 6,
+   "sourceType": "module"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tianyucoder/191021_webpack.git"
+  "env": {
+   "browser": true,
+   "node": true
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tianyucoder/191021_webpack/issues"
+  "globals": {
+   "$": "readonly"
   },
-  "homepage": "https://github.com/tianyucoder/191021_webpack#readme",
-  "dependencies": {
-    "css-loader": "^3.4.2",
-    "style-loader": "^1.1.3",
-    "webpack": "^4.42.0",
-    "webpack-cli": "^3.3.11"
+  "rules": {
+   "no-console": 0,
+   "eqeqeq": 2,
+   "no-alert": 2
   },
-  "devDependencies": {
-    "less": "^3.11.1",
-    "less-loader": "^5.0.0"
-  }
+  "extends": "eslint:recommended"
+ }
 }

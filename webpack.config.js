@@ -16,6 +16,7 @@ module.exports = {
 	module: {
 		//rules属性值为一个数组，数组里放的是一个一个的loader
 		rules: [
+			//使用：less-loader,css-loader,style-loader编译less为style标签
 			{
 				test: /\.less$/, //匹配所有的less文件
 				use: [
@@ -23,7 +24,24 @@ module.exports = {
 					{loader: "css-loader" }, //将内存中的css翻译为CommonJS的一个模块(内存)
 					{loader: "less-loader" } //将less翻译成css(内存)
 				]
-			}
+			},
+			//使用eslint-loader进行js的语法检查
+			{
+        test: /\.js$/,//匹配所有js文件
+        exclude: /node_modules/,//排除node_modules文件
+        loader: 'eslint-loader',
+			},
+			//使用babel-loader，进行语法转换
+			{
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env'] //开启babel解析环境
+          }
+        }
+      }
 		]
 	}
 };
