@@ -60,11 +60,12 @@ module.exports = {
         test: /\.(png|jpg|gif|jpeg|bmp)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: 'url-loader',
             options: {
 							outputPath:'/imgs',//输出路径
 							name:'[hash:5].[ext]',//文件命名格式
-							publicPath:'../dist/imgs'//加载图片时候的路径
+							publicPath:'../dist/imgs',//加载图片时候的路径
+							limit: 8192 //图片小于8KB，就做base64转换
 						}
           }
         ]
