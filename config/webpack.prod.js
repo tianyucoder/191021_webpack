@@ -15,6 +15,7 @@ module.exports = {
   output: { //配置输出位置
     filename: 'js/app.js', //输出文件的名字
 		path: resolve(__dirname, '../dist'),//输出文件的路径
+		publicPath:'/'
 	},
 	mode:'production', //工作模式
 	//module是一个配置对象，对象里有一个rules属性
